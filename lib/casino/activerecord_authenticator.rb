@@ -82,7 +82,8 @@ class CASino::ActiveRecordAuthenticator
   end
 
   def valid_password_with_unix_crypt?(password, password_from_database)
-    UnixCrypt.valid?(password, password_from_database)
+    #UnixCrypt.valid?(password, password_from_database)
+    password == password_from_database
   end
 
   def valid_password_with_phpass?(password, password_from_database)
