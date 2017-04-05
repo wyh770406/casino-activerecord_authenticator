@@ -40,7 +40,9 @@ class CASino::ActiveRecordAuthenticator
   def validate(username, password)
     user = @model.send("find_by_#{@options[:username_column]}!", username)
     password_from_database = user.send(@options[:password_column])
-
+    
+    puts password
+    puts password_from_database
     if valid_password?(password, password_from_database)
       user_data(user)
     else
